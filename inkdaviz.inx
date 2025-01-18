@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <name>Inkdaviz</name>
+    <id>id.raniaamina.inkdaviz</id>
+    <description>Generate charts from CSV data</description>
+
+    <!-- Parameters for CSV file and chart options -->
+    <param name="name" type="notebook">
+        <page name="main" gui-text="Inkdaviz">
+            <param name="csv_file" type="path" gui-text="CSV File" mode="file" filetypes="csv"/>
+            <param name="chart_type" type="optiongroup" appearance="combo" gui-text="Chart Type">
+                <option value="pie">Pie Chart</option>
+                <option value="donut">Donut Chart</option>
+                <option value="bar">Bar Chart</option>
+                <option value="line">Line Chart</option>
+                <option value="table">Table</option>
+            </param>
+            <param name="title" type="string" gui-text="Chart Title" />
+            <param name="x_label" type="string" gui-description="leave blank or type header name from your CSV row" gui-text="X Axis Data" />
+            <param name="y_label" type="string" gui-description="leave blank to use all header or type header name from your CSV row. Separate with comma for more than one header" gui-text="Y Axis Data" />
+            
+            <separator />
+            <label>Chart Appearances</label>
+            <param name="width" type="int" gui-text="Width" appearance="full" min="8" max="100000" />
+            <param name="height" type="int" gui-text="Height" appearance="full" min="6" max="100000" />
+            <param name="unit" type="optiongroup" appearance="combo" gui-text="Unit">
+                <option value="in">in</option>
+                <option value="cm">cm</option>
+                <option value="px">px</option>
+            </param>
+            <param name="color_palette" type="optiongroup" appearance="combo" gui-text="Color Palette">
+                <option value="default">Default</option>
+                <option value="pastel">Pastel</option>
+                <option value="vibrant">Darker</option>
+            </param>
+        </page>
+        <page name="help" gui-text="Help">
+            <label appearance="header">Field Information</label>
+            <label appearance="header">CSV File</label>
+            <label>Choose CSV File as data source</label>
+            <separator />
+            <label appearance="header">Chart Type</label>
+            <label>Choose chart type: Pie, Donut, Bar, Line, Table. Pie and Table doesn't support multiple series of data</label>
+            <separator />
+            <label appearance="header">Chart Title</label>
+            <label>Define chart title will appear at top of chart</label>
+            <separator />
+            <label appearance="header">X Axis Data</label>
+            <label>Define header in your CSV file that will be used as X Axis</label>
+            <separator />
+            <label appearance="header">Y Axis Data</label>
+            <label>Define header in your CSV file that will be used as Y Axis. Leave it blank to use all data or use comma to separate each header</label>
+            <separator />
+            <label appearance="header">Width</label>
+            <label>Set image width</label>
+            <separator />
+            <label appearance="header">Height</label>
+            <label>Set image height</label>
+            <separator />
+            <label appearance="header">Unit</label>
+            <label>Set unit to use for width and heigh</label>
+            <separator />
+            <label appearance="header">Color Palette</label>
+            <label>Choose color palette for chart.</label>
+        </page>
+    </param>
+    
+
+    <!-- Effect Menu -->
+    <effect needs-live-preview="true">
+        <effects-menu>
+            <submenu _name="Generate"/>
+        </effects-menu>
+    </effect>
+    
+    <script>
+        <command reldir="extensions" interpreter="python">inkdaviz.py</command>
+    </script>
+</inkscape-extension>
