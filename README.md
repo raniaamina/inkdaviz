@@ -1,3 +1,5 @@
+![Screenshot](sample/preview-inkdaviz.png)
+
 # Inkdaviz - Inkscape Extension
 
 Inkdaviz is an Inkscape extension that generates SVG chart from CSV data directly in Inkscape.. 
